@@ -7,8 +7,11 @@
 
 package execution;
 
+import definition.MyLinkedList;
+
 public class Main {
     public static void main(String[] args) {
-
+        MyLinkedList<Integer> temp = new MyLinkedList<Integer>();
+        System.out.println(temp);
     }
 }
