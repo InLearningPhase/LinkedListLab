@@ -14,10 +14,6 @@ public class MyLinkedList<E> implements LinkedListADT<E> {
     private Node<E> head = null;
     private int size = 0;
 
-    private Node<E> getNode(int index) {
-        Node<E> response = null;
-        return response;
-    }
 
     public E get(int index) {
         E response = null;
@@ -71,9 +67,27 @@ public class MyLinkedList<E> implements LinkedListADT<E> {
 
     }
 
+    private Node<E> getNode(int index) {
+        Node<E> response = null;
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        } else {
+            Node<E> temp = head;
+            for (int i = 0; i < index && temp != null; i++) {
+                temp = temp.getNext();
+            }
+            response = temp;
+        }
+        return response;
+    }
+
     @Override
     public void print() {
+        System.out.print("[");
+        System.out.println("]");
+        for (int i = 0; i < size; i++) {
 
+        }
     }
 
     private static class Node<E> {
@@ -84,7 +98,6 @@ public class MyLinkedList<E> implements LinkedListADT<E> {
             this.data = data;
             this.next = next;
         }
-
         private Node(E data) {
             this.data = data;
         }
